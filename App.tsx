@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Terminal } from './components/Terminal';
 import { PROJECTS, SKILL_CATEGORIES, EXPERIENCES, ICONS } from './constants';
 
@@ -7,6 +7,25 @@ const App: React.FC = () => {
   const GITHUB_URL = "https://github.com/mahnoorshkh";
   const LINKEDIN_URL = "https://www.linkedin.com/in/mahnoor-khurram-88a536215/";
   const RECOMMENDATION_URL = "https://www.linkedin.com/in/mahnoor-khurram-88a536215/details/recommendations/";
+
+  const [displayText, setDisplayText] = useState('');
+  const fullText = "Generative AI & AI-powered App Development";
+  
+  useEffect(() => {
+    let currentText = '';
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < fullText.length) {
+        currentText += fullText[index];
+        setDisplayText(currentText);
+        index++;
+      } else {
+        // Optional: Loop or just stop
+        clearInterval(interval);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -36,6 +55,7 @@ const App: React.FC = () => {
             <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="hover:text-emerald-500 transition-colors">Projects</a>
             <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="hover:text-emerald-500 transition-colors">Skills</a>
             <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="hover:text-emerald-500 transition-colors">Experience</a>
+            <a href="#learning" onClick={(e) => handleNavClick(e, 'learning')} className="hover:text-emerald-500 transition-colors">Current</a>
           </div>
         </div>
       </nav>
@@ -52,10 +72,10 @@ const App: React.FC = () => {
               Available for Scalable Solutions
             </div>
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 tracking-tight">
-              Building Scalable Backend Systems & <span className="text-emerald-500">Mentoring</span> the Next Generation.
+              Software Engineer | <span className="text-emerald-500">Backend Specialist</span> | System Architect
             </h1>
             <p className="text-zinc-400 text-lg mb-8 leading-relaxed max-w-xl">
-              Software Engineer specializing in robust Node.js architectures and API optimization. 
+              Specializing in robust Node.js architectures and API optimization. 
               Currently teaching at FAST NUCES, bridging the gap between industry and academia.
             </p>
             <div className="flex gap-4">
@@ -68,6 +88,29 @@ const App: React.FC = () => {
           </div>
           <div id="terminal">
             <Terminal />
+          </div>
+        </section>
+
+        {/* Learning Section (Typing Form) */}
+        <section id="learning" className="mb-32">
+          <div className="flex items-center gap-4 mb-12">
+            <h2 className="text-3xl font-bold">Currently Learning</h2>
+            <div className="h-px flex-1 bg-zinc-900"></div>
+          </div>
+          <div className="p-10 rounded-2xl bg-zinc-900/20 border border-zinc-800 hover:border-emerald-500/20 transition-all group">
+            <div className="flex items-center gap-4 mb-6">
+               <div className="p-3 bg-zinc-900 rounded-lg text-emerald-500">
+                  <ICONS.Book />
+               </div>
+               <span className="text-zinc-500 font-mono text-sm tracking-widest uppercase">Focusing on the Future</span>
+            </div>
+            <div className="font-mono text-2xl md:text-4xl font-bold text-zinc-100 leading-tight">
+              Deep diving into <span className="text-emerald-500 underline decoration-emerald-500/30 underline-offset-8">{displayText}</span>
+              <span className="inline-block w-2 h-8 ml-1 bg-emerald-500 animate-pulse align-middle"></span>
+            </div>
+            <p className="mt-8 text-zinc-400 leading-relaxed max-w-2xl">
+              Exploring advanced prompt engineering, RAG architectures, and integrating LLMs into full-stack applications to build autonomous, intelligent systems.
+            </p>
           </div>
         </section>
 
