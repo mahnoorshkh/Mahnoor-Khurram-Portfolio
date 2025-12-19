@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 
 const SYSTEM_INSTRUCTION = `
@@ -19,8 +18,15 @@ If someone asks something unrelated to her career, politely steer it back to her
 `;
 
 export const getGeminiResponse = async (prompt: string): Promise<string> => {
+  // Try to get the key from the environment variable injected by the platform
+  const apiKey = process.env.API_KEY;
+  
+  if (!apiKey) {
+    return "ERROR_MISSING_KEY";
+  }
+
   try {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: prompt,
@@ -30,8 +36,11 @@ export const getGeminiResponse = async (prompt: string): Promise<string> => {
       },
     });
     return response.text || "I'm having trouble connecting to my cognitive backend. Please try again later.";
-  } catch (error) {
+  } catch (error: any) {
     console.error("Gemini Error:", error);
-    return "Error: Request timed out. Ensure API configuration is active.";
+    if (error?.message?.includes("Requested entity was not found") || error?.message?.includes("API_KEY_INVALID")) {
+      return "ERROR_INVALID_KEY";
+    }
+    return "Error: Request failed. Ensure your API key is active and has sufficient quota.";
   }
 };
