@@ -20,7 +20,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'gofood',
     title: 'GoFood MERN App',
-    description: 'A comprehensive restaurant and food delivery application with a focus on high-performance listings.',
+    description: 'Comprehensive restaurant and food delivery application with high-performance listings and secure checkout.',
     tags: ['MERN', 'Express', 'React', 'Node.js', 'MongoDB'],
     features: [
       'Dynamic food category filtering and search',
@@ -32,10 +32,10 @@ export const PROJECTS: Project[] = [
   {
     id: 'proplink',
     title: 'PropLink Property App',
-    description: 'Modern real estate platform for listing and discovering properties with advanced filtering.',
+    description: 'Modern real estate platform for listing and discovering properties with advanced search and image management.',
     tags: ['MERN', 'Context API', 'Express', 'Node.js', 'MongoDB'],
     features: [
-      'Image upload and management for property listings',
+      'Cloudinary integration for property image management',
       'Advanced search filters for price, location, and amenities',
       'Responsive design for mobile-first property browsing'
     ],
@@ -44,7 +44,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'carter',
     title: 'Carter Boating App',
-    description: 'Service-based application for boating enthusiasts with automated workflows.',
+    description: 'Service-based application for boating enthusiasts with automated maintenance workflows.',
     tags: ['Next.js', 'AWS S3', 'Node.js', 'Google Maps API', 'Cron Jobs'],
     features: [
       'AWS S3 for high-speed asset management',
@@ -55,8 +55,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'medease',
-    title: 'MedEase (Final Year Project)',
-    description: 'AI-powered healthcare assistant facilitating patient-doctor interactions.',
+    title: 'MedEase (FYP)',
+    description: 'AI-powered healthcare assistant facilitating intelligent patient-doctor interactions.',
     tags: ['Python', 'GenAI', 'React Native', 'Web Scraping', 'Node.js'],
     features: [
       'AI-powered chatbot for preliminary diagnosis',
@@ -129,5 +129,8 @@ export const ICONS = {
   ),
   Book: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+  ),
+  Graduation: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
   )
 };

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Terminal } from './components/Terminal';
 import { PROJECTS, SKILL_CATEGORIES, EXPERIENCES, ICONS } from './constants';
@@ -34,7 +33,13 @@ const App: React.FC = () => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -51,10 +56,10 @@ const App: React.FC = () => {
             <span className="font-mono font-bold text-lg hidden sm:block">Mahnoor Khurram</span>
           </div>
           <div className="flex gap-6 text-sm font-medium text-zinc-400">
-            <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="hover:text-emerald-500 transition-colors">Projects</a>
-            <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="hover:text-emerald-500 transition-colors">Skills</a>
-            <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="hover:text-emerald-500 transition-colors">Experience</a>
-            <a href="#learning" onClick={(e) => handleNavClick(e, 'learning')} className="hover:text-emerald-500 transition-colors tracking-wide">Frontier</a>
+            <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="hover:text-emerald-500 transition-colors uppercase">Projects</a>
+            <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="hover:text-emerald-500 transition-colors uppercase">Skills</a>
+            <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="hover:text-emerald-500 transition-colors uppercase">Experience</a>
+            <a href="#learning" onClick={(e) => handleNavClick(e, 'learning')} className="hover:text-emerald-500 transition-colors tracking-wide uppercase">Frontier</a>
           </div>
         </div>
       </nav>
@@ -90,7 +95,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Learning Section (The Frontier) */}
+        {/* Frontier Section */}
         <section id="learning" className="mb-32">
           <div className="flex items-center gap-4 mb-12">
             <h2 className="text-3xl font-bold italic tracking-tight">Architecting the Future</h2>
@@ -113,7 +118,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Experience Section - Academic & Professional Split */}
+        {/* Experience Section */}
         <section id="experience" className="mb-32">
           <div className="flex items-center gap-4 mb-12">
             <h2 className="text-3xl font-bold">Academic & Professional</h2>
@@ -240,7 +245,7 @@ const App: React.FC = () => {
             <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors">LinkedIn</a>
           </div>
           <div className="text-zinc-600 text-xs font-mono">
-            &copy; {new Date().getFullYear()} Mahnoor Khurram.
+            &copy; {new Date().getFullYear()} Mahnoor Khurram. Optimized for Performance.
           </div>
         </footer>
       </main>
