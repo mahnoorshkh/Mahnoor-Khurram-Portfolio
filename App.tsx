@@ -20,7 +20,6 @@ const App: React.FC = () => {
         setDisplayText(currentText);
         index++;
       } else {
-        // Optional: Loop or just stop
         clearInterval(interval);
       }
     }, 100);
@@ -49,13 +48,13 @@ const App: React.FC = () => {
             className="flex items-center gap-2 group cursor-pointer"
           >
             <div className="w-8 h-8 bg-emerald-500 rounded flex items-center justify-center text-zinc-950 font-bold font-mono group-hover:bg-emerald-400 transition-colors">MK</div>
-            <span className="font-mono font-bold text-lg hidden sm:block">mahnoor.khurram</span>
+            <span className="font-mono font-bold text-lg hidden sm:block">Mahnoor Khurram</span>
           </div>
           <div className="flex gap-6 text-sm font-medium text-zinc-400">
             <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="hover:text-emerald-500 transition-colors">Projects</a>
             <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="hover:text-emerald-500 transition-colors">Skills</a>
             <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="hover:text-emerald-500 transition-colors">Experience</a>
-            <a href="#learning" onClick={(e) => handleNavClick(e, 'learning')} className="hover:text-emerald-500 transition-colors">Current</a>
+            <a href="#learning" onClick={(e) => handleNavClick(e, 'learning')} className="hover:text-emerald-500 transition-colors tracking-wide">Frontier</a>
           </div>
         </div>
       </nav>
@@ -69,14 +68,14 @@ const App: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              Available for Scalable Solutions
+              Graduated From FAST NUCES
             </div>
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 tracking-tight">
               Software Engineer | <span className="text-emerald-500">Backend Specialist</span> | System Architect
             </h1>
             <p className="text-zinc-400 text-lg mb-8 leading-relaxed max-w-xl">
-              Specializing in robust Node.js architectures and API optimization. 
-              Currently teaching at FAST NUCES, bridging the gap between industry and academia.
+              Specializing in robust Node.js architectures and large-scale API optimization. 
+              <strong> FAST NUCES Alumna</strong> currently serving as Visiting Faculty, bridging the gap between advanced theory and industrial application.
             </p>
             <div className="flex gap-4">
               <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="px-6 py-3 bg-emerald-500 text-zinc-950 font-bold rounded-lg hover:bg-emerald-400 transition-all emerald-glow">View Projects</a>
@@ -91,10 +90,10 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Learning Section (Typing Form) */}
+        {/* Learning Section (The Frontier) */}
         <section id="learning" className="mb-32">
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl font-bold">Currently Learning</h2>
+            <h2 className="text-3xl font-bold italic tracking-tight">Architecting the Future</h2>
             <div className="h-px flex-1 bg-zinc-900"></div>
           </div>
           <div className="p-10 rounded-2xl bg-zinc-900/20 border border-zinc-800 hover:border-emerald-500/20 transition-all group">
@@ -102,14 +101,14 @@ const App: React.FC = () => {
                <div className="p-3 bg-zinc-900 rounded-lg text-emerald-500">
                   <ICONS.Book />
                </div>
-               <span className="text-zinc-500 font-mono text-sm tracking-widest uppercase">Focusing on the Future</span>
+               <span className="text-zinc-500 font-mono text-sm tracking-widest uppercase">Ongoing Research & Development</span>
             </div>
             <div className="font-mono text-2xl md:text-4xl font-bold text-zinc-100 leading-tight">
               Deep diving into <span className="text-emerald-500 underline decoration-emerald-500/30 underline-offset-8">{displayText}</span>
               <span className="inline-block w-2 h-8 ml-1 bg-emerald-500 animate-pulse align-middle"></span>
             </div>
             <p className="mt-8 text-zinc-400 leading-relaxed max-w-2xl">
-              Exploring advanced prompt engineering, RAG architectures, and integrating LLMs into full-stack applications to build autonomous, intelligent systems.
+              Mastering the intersection of LLMs and enterprise backend systems. Focusing on RAG (Retrieval-Augmented Generation), vector databases, and autonomous AI agents designed for production environments.
             </p>
           </div>
         </section>
